@@ -5,6 +5,7 @@ model-vs-human which has it from:
 https://github.com/rgeirhos/texture-vs-shape/blob/master/models/load_pretrained_models.py
 Accessed 02.03.2020
 """
+from typing import Any
 from .custom import Custom
 import os
 import torch

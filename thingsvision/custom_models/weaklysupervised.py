@@ -1,4 +1,4 @@
-
+from typing import Any
 import torch
 from torchvision import transforms
 from .custom import Custom

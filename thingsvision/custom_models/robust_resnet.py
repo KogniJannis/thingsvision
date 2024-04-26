@@ -2,7 +2,7 @@
 Based On:
 the robust models from MadryLab, their implementation in model-vs-human which was derived from Cadena's implementation
 '''
-
+from typing import Any
 from .custom import Custom
 
 import torch
