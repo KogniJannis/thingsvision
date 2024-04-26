@@ -34,11 +34,64 @@ def _model(arch, model_fn, pretrained, progress, use_data_parallel, **kwargs):
         
     return model
 
+
+
+def resnet50_l2_eps0(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 0  L2-robustness on ImageNet. Accuracy: 75.80. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps0', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+
+def resnet50_l2_eps0_01(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 0.01  L2-robustness on ImageNet. Accuracy: 75.68. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps0_01', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+def resnet50_l2_eps0_03(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 0.03  L2-robustness on ImageNet. Accuracy: 75.76. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps0_03', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+def resnet50_l2_eps0_05(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 0.05  L2-robustness on ImageNet. Accuracy: 75.59. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps0_05', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+
+def resnet50_l2_eps0_1(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 0.1  L2-robustness on ImageNet. Accuracy: 74.78. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps0_1', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
 class ResNet50_l2_eps0(Custom):
     def __init__(self, device, parameters) -> None:
         super().__init__(device)
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = _model('resnet50_l2_eps0', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+        model = resnet50_l2_eps0()
+        return model, None
+
+class ResNet50_l2_eps0_01(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps0_01()
+        return model, None
+
+
+class ResNet50_l2_eps0_03(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps0_03()
         return model, None
