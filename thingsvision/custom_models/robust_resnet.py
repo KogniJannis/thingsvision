@@ -127,7 +127,6 @@ class ResNet50_l2_eps0_01(Custom):
         model = resnet50_l2_eps0_01()
         return model, None
 
-
 class ResNet50_l2_eps0_03(Custom):
     def __init__(self, device, parameters) -> None:
         super().__init__(device)
@@ -146,3 +145,56 @@ class ResNet50_l2_eps0_05(Custom):
         model = resnet50_l2_eps0_05()
         return model, None
 
+class ResNet50_l2_eps0_1(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps0_1()
+        return model, None
+    
+class ResNet50_l2_eps0_25(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps0_25()
+        return model, None
+
+class ResNet50_l2_eps0_5(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps0_5()
+        return model, None
+
+class ResNet50_l2_eps1(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps1()
+        return model, None
+
+class ResNet50_l2_eps3(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps3()
+        return model, None
+
+class ResNet50_l2_eps5(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps5()
+        return model, None
