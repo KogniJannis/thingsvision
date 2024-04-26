@@ -5,4 +5,6 @@ from .official_clip import clip
 from .openclip import OpenCLIP
 from .resnet50_ecoset import Resnet50_ecoset
 from .vgg16_ecoset import VGG16_ecoset
-from robust_resnet import ResNet50_l2_eps0, ResNet50_l2_eps0_01, ResNet50_l2_eps0_03
+from .robust_resnet import *
+from .shapenets import *
+from .weaklysupervised import *

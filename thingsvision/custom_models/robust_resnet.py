@@ -9,6 +9,10 @@ import torch
 from torch.hub import load_state_dict_from_url
 from torchvision.models import resnet50
 
+__all__ = ['ResNet50_l2_eps0', 'ResNet50_l2_eps0_01', 'ResNet50_l2_eps0_03',
+           'ResNet50_l2_eps0_05', 'ResNet50_l2_eps0_1', 'ResNet50_l2_eps0_25',
+           'ResNet50_l2_eps0_5', 'ResNet50_l2_eps1', 'ResNet50_l2_eps3', 'ResNet50_l2_eps5']
+
 model_urls = {"resnet50_l2_eps0": "https://huggingface.co/madrylab/robust-imagenet-models/resolve/main/resnet50_l2_eps0.ckpt",
               "resnet50_l2_eps0_01": "https://huggingface.co/madrylab/robust-imagenet-models/resolve/main/resnet50_l2_eps0.01.ckpt",
               "resnet50_l2_eps0_03": "https://huggingface.co/madrylab/robust-imagenet-models/resolve/main/resnet50_l2_eps0.03.ckpt",
@@ -68,6 +72,43 @@ def resnet50_l2_eps0_1(pretrained=True, progress=True, use_data_parallel=False, 
     """
     return _model('resnet50_l2_eps0_1', resnet50, pretrained, progress, use_data_parallel, **kwargs)
 
+def resnet50_l2_eps0_25(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 0.25  L2-robustness on ImageNet. Accuracy: 74.14. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps0_25', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+
+def resnet50_l2_eps0_5(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 0.5  L2-robustness on ImageNet. Accuracy: 73.16. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps0_5', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+
+def resnet50_l2_eps1(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 1.0  L2-robustness on ImageNet. Accuracy: 70.43. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps1', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+
+def resnet50_l2_eps3(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 3.0  L2-robustness on ImageNet. Accuracy: 62.83. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps3', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+
+def resnet50_l2_eps5(pretrained=True, progress=True, use_data_parallel=False, **kwargs):
+    r""" Resnet50 with epsilon 5.0  L2-robustness on ImageNet. Accuracy: 56.13. 
+    By: https://github.com/microsoft/robust-models-transfer
+    """
+    return _model('resnet50_l2_eps5', resnet50, pretrained, progress, use_data_parallel, **kwargs)
+
+
+
+
 class ResNet50_l2_eps0(Custom):
     def __init__(self, device, parameters) -> None:
         super().__init__(device)
@@ -95,3 +136,13 @@ class ResNet50_l2_eps0_03(Custom):
     def create_model(self) -> Any:
         model = resnet50_l2_eps0_03()
         return model, None
+    
+class ResNet50_l2_eps0_05(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = resnet50_l2_eps0_05()
+        return model, None
+
