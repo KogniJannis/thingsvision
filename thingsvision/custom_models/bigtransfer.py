@@ -1,5 +1,6 @@
 from typing import Any
 import tensorflow_hub as hub
+from .custom import Custom
 
 __all__ = ['BitS_ResNet50x1']
 
