@@ -8,3 +8,4 @@ from .vgg16_ecoset import VGG16_ecoset
 from .robust_resnet import *
 from .shapenets import *
 from .weaklysupervised import *
+from .bigtransfer import *
