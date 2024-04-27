@@ -11,7 +11,26 @@ import requests
 import io
 import numpy as np
 
-__all__ = ['BitS_ResNet50x1']
+__all__ = [
+    'BitS_ResNet50x1',
+    'BitS_ResNet50x3',
+    'BitS_ResNet101x1',
+    'BitS_ResNet101x3',
+    'BitS_ResNet152x2',
+    'BitS_ResNet152x4',
+    'BitM_ResNet50x1',
+    'BitM_ResNet50x3',
+    'BitM_ResNet101x1',
+    'BitM_ResNet101x3',
+    'BitM_ResNet152x2',
+    'BitM_ResNet152x4',
+    'BitM_ResNet50x1_ILSVRC2012',
+    'BitM_ResNet50x3_ILSVRC2012',
+    'BitM_ResNet101x1_ILSVRC2012',
+    'BitM_ResNet101x3_ILSVRC2012',
+    'BitM_ResNet152x2_ILSVRC2012',
+    'BitM_ResNet152x4_ILSVRC2012',
+]
 
 
 # Copyright 2020 Google LLC
@@ -205,6 +224,28 @@ KNOWN_MODELS = OrderedDict([
     ('BiT-S-R152x4', lambda *a, **kw: ResNetV2([3, 8, 36, 3], 4, *a, **kw)),
 ])
 
+AVAILABLE_WEIGHTS = [
+    'BiT-M-R50x1',
+    'BiT-M-R50x3', 
+    'BiT-M-R101x1', 
+    'BiT-M-R101x3', 
+    'BiT-M-R152x2', 
+    'BiT-M-R152x4',
+    'BiT-M-R50x1-ILSVRC2012',
+    'BiT-M-R50x3-ILSVRC2012', 
+    'BiT-M-R101x1-ILSVRC2012', 
+    'BiT-M-R101x3-ILSVRC2012', 
+    'BiT-M-R152x2-ILSVRC2012', 
+    'BiT-M-R152x4-ILSVRC2012',
+    'BiT-S-R50x1',
+    'BiT-S-R50x3', 
+    'BiT-S-R101x1',
+    'BiT-S-R101x3', 
+    'BiT-S-R152x2', 
+    'BiT-S-R152x4', 
+
+]
+
 def get_weights(bit_variant):
   response = requests.get(f'https://storage.googleapis.com/bit_models/{bit_variant}.npz')
   response.raise_for_status()
@@ -216,6 +257,178 @@ class BitS_ResNet50x1(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-S-R50x1']()
+        model.load_from(get_weights('BiT-S-R50x1'))
+        return model, None
+
+class BitS_ResNet50x3(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-S-R50x3']()
+        model.load_from(get_weights('BiT-S-R50x3'))
+        return model, None
+
+class BitS_ResNet101x1(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-S-R101x1']()
+        model.load_from(get_weights('BiT-S-R101x1'))
+        return model, None
+
+class BitS_ResNet101x3(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-S-R101x3']()
+        model.load_from(get_weights('BiT-S-R101x3'))
+        return model, None
+    
+class BitS_ResNet152x2(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-S-R152x2']()
+        model.load_from(get_weights('BiT-S-R152x2'))
+        return model, None
+    
+class BitS_ResNet152x4(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-S-R152x4']()
+        model.load_from(get_weights('BiT-S-R152x4'))
+        return model, None
+    
+class BitM_ResNet50x1(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R50x1']()
         model.load_from(get_weights('BiT-M-R50x1'))
         return model, None
+    
+class BitM_ResNet50x3(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R50x3']()
+        model.load_from(get_weights('BiT-M-R50x3'))
+        return model, None
+    
+class BitM_ResNet101x1(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R101x1']()
+        model.load_from(get_weights('BiT-M-R101x1'))
+        return model, None
+    
+class BitM_ResNet101x3(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R101x3']()
+        model.load_from(get_weights('BiT-M-R101x3'))
+        return model, None
+    
+class BitM_ResNet152x2(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R152x2']()
+        model.load_from(get_weights('BiT-M-R152x2'))
+        return model, None
+    
+class BitM_ResNet152x4(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R152x4']()
+        model.load_from(get_weights('BiT-M-R152x4'))
+        return model, None
+    
+class BitM_ResNet50x1_ILSVRC2012(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R50x1']()
+        model.load_from(get_weights('BiT-M-R50x1-ILSVRC2012'))
+        return model, None
+    
+class BitM_ResNet50x3_ILSVRC2012(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R50x3']()
+        model.load_from(get_weights('BiT-M-R50x3-ILSVRC2012'))
+        return model, None
+    
+class BitM_ResNet101x1_ILSVRC2012(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R101x1']()
+        model.load_from(get_weights('BiT-M-R101x1-ILSVRC2012'))
+        return model, None
+    
+class BitM_ResNet101x3_ILSVRC2012(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R101x3']()
+        model.load_from(get_weights('BiT-M-R101x3-ILSVRC2012'))
+        return model, None
+    
+class BitM_ResNet152x2_ILSVRC2012(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R152x2']()
+        model.load_from(get_weights('BiT-M-R152x2-ILSVRC2012'))
+        return model, None
+    
+class BitM_ResNet152x4_ILSVRC2012(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "pt"
+
+    def create_model(self) -> Any:
+        model = KNOWN_MODELS['BiT-M-R152x4']()
+        model.load_from(get_weights('BiT-M-R152x4-ILSVRC2012'))
+        return model, None
+    
+    
