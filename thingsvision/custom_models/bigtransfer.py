@@ -6,6 +6,7 @@ https://github.com/google-research/big_transfer/tree/master/bit_pytorch
 from typing import Any
 import tensorflow_hub as hub
 from .custom import Custom
+from torchvision import transforms as T
 
 import requests
 import io
@@ -251,6 +252,22 @@ def get_weights(bit_variant):
   response.raise_for_status()
   return np.load(io.BytesIO(response.content))
 
+
+
+def preprocessing(resize_dim, crop_dim):
+    mean = [0.5, 0.5, 0.5]
+    std = [0.5, 0.5, 0.5]
+    return T.Compose[T.Resize(resize_dim), T.CenterCrop(crop_dim), T.ToTensor(), T.Normalize(mean=mean, std=std)]
+
+
+preprocess_bitm_in21k = preprocessing(resize_dim=256, crop_dim=224)
+preprocess_bitm_ilsvrc2012 = preprocessing(resize_dim=448, crop_dim=448) #not for largest model 152x4 which is 480
+preprocess_bits = preprocessing(resize_dim=384, crop_dim=384)
+#could not find any source at all for this so this is a wild guess
+#this tensorflow implementation uses RESIZE_TO = 384 but only crops with CROP_TO = 224 during traing: https://keras.io/examples/vision/bit/
+#also info here: https://paperswithcode.com/paper/large-scale-learning-of-general-visual/review/?hl=16568
+
+
 class BitS_ResNet50x1(Custom):
     def __init__(self, device, parameters) -> None:
         super().__init__(device)
@@ -259,7 +276,7 @@ class BitS_ResNet50x1(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-S-R50x1']()
         model.load_from(get_weights('BiT-S-R50x1'))
-        return model, None
+        return model, preprocess_bits
 
 class BitS_ResNet50x3(Custom):
     def __init__(self, device, parameters) -> None:
@@ -269,7 +286,7 @@ class BitS_ResNet50x3(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-S-R50x3']()
         model.load_from(get_weights('BiT-S-R50x3'))
-        return model, None
+        return model, preprocess_bits
 
 class BitS_ResNet101x1(Custom):
     def __init__(self, device, parameters) -> None:
@@ -279,7 +296,7 @@ class BitS_ResNet101x1(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-S-R101x1']()
         model.load_from(get_weights('BiT-S-R101x1'))
-        return model, None
+        return model, preprocess_bits
 
 class BitS_ResNet101x3(Custom):
     def __init__(self, device, parameters) -> None:
@@ -289,7 +306,7 @@ class BitS_ResNet101x3(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-S-R101x3']()
         model.load_from(get_weights('BiT-S-R101x3'))
-        return model, None
+        return model, preprocess_bits
     
 class BitS_ResNet152x2(Custom):
     def __init__(self, device, parameters) -> None:
@@ -299,7 +316,7 @@ class BitS_ResNet152x2(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-S-R152x2']()
         model.load_from(get_weights('BiT-S-R152x2'))
-        return model, None
+        return model, preprocess_bits
     
 class BitS_ResNet152x4(Custom):
     def __init__(self, device, parameters) -> None:
@@ -309,7 +326,7 @@ class BitS_ResNet152x4(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-S-R152x4']()
         model.load_from(get_weights('BiT-S-R152x4'))
-        return model, None
+        return model, preprocess_bits
     
 class BitM_ResNet50x1(Custom):
     def __init__(self, device, parameters) -> None:
@@ -319,7 +336,7 @@ class BitM_ResNet50x1(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R50x1']()
         model.load_from(get_weights('BiT-M-R50x1'))
-        return model, None
+        return model, preprocess_bitm_in21k
     
 class BitM_ResNet50x3(Custom):
     def __init__(self, device, parameters) -> None:
@@ -329,7 +346,7 @@ class BitM_ResNet50x3(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R50x3']()
         model.load_from(get_weights('BiT-M-R50x3'))
-        return model, None
+        return model, preprocess_bitm_in21k
     
 class BitM_ResNet101x1(Custom):
     def __init__(self, device, parameters) -> None:
@@ -339,7 +356,7 @@ class BitM_ResNet101x1(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R101x1']()
         model.load_from(get_weights('BiT-M-R101x1'))
-        return model, None
+        return model, preprocess_bitm_in21k
     
 class BitM_ResNet101x3(Custom):
     def __init__(self, device, parameters) -> None:
@@ -349,7 +366,7 @@ class BitM_ResNet101x3(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R101x3']()
         model.load_from(get_weights('BiT-M-R101x3'))
-        return model, None
+        return model, preprocess_bitm_in21k
     
 class BitM_ResNet152x2(Custom):
     def __init__(self, device, parameters) -> None:
@@ -359,7 +376,7 @@ class BitM_ResNet152x2(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R152x2']()
         model.load_from(get_weights('BiT-M-R152x2'))
-        return model, None
+        return model, preprocess_bitm_in21k
     
 class BitM_ResNet152x4(Custom):
     def __init__(self, device, parameters) -> None:
@@ -369,7 +386,7 @@ class BitM_ResNet152x4(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R152x4']()
         model.load_from(get_weights('BiT-M-R152x4'))
-        return model, None
+        return model, preprocess_bitm_in21k
     
 class BitM_ResNet50x1_ILSVRC2012(Custom):
     def __init__(self, device, parameters) -> None:
@@ -379,7 +396,7 @@ class BitM_ResNet50x1_ILSVRC2012(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R50x1']()
         model.load_from(get_weights('BiT-M-R50x1-ILSVRC2012'))
-        return model, None
+        return model, preprocess_bitm_ilsvrc2012
     
 class BitM_ResNet50x3_ILSVRC2012(Custom):
     def __init__(self, device, parameters) -> None:
@@ -389,7 +406,7 @@ class BitM_ResNet50x3_ILSVRC2012(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R50x3']()
         model.load_from(get_weights('BiT-M-R50x3-ILSVRC2012'))
-        return model, None
+        return model, preprocess_bitm_ilsvrc2012
     
 class BitM_ResNet101x1_ILSVRC2012(Custom):
     def __init__(self, device, parameters) -> None:
@@ -399,7 +416,7 @@ class BitM_ResNet101x1_ILSVRC2012(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R101x1']()
         model.load_from(get_weights('BiT-M-R101x1-ILSVRC2012'))
-        return model, None
+        return model, preprocess_bitm_ilsvrc2012
     
 class BitM_ResNet101x3_ILSVRC2012(Custom):
     def __init__(self, device, parameters) -> None:
@@ -409,7 +426,7 @@ class BitM_ResNet101x3_ILSVRC2012(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R101x3']()
         model.load_from(get_weights('BiT-M-R101x3-ILSVRC2012'))
-        return model, None
+        return model, preprocess_bitm_ilsvrc2012
     
 class BitM_ResNet152x2_ILSVRC2012(Custom):
     def __init__(self, device, parameters) -> None:
@@ -419,7 +436,7 @@ class BitM_ResNet152x2_ILSVRC2012(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R152x2']()
         model.load_from(get_weights('BiT-M-R152x2-ILSVRC2012'))
-        return model, None
+        return model, preprocess_bitm_ilsvrc2012
     
 class BitM_ResNet152x4_ILSVRC2012(Custom):
     def __init__(self, device, parameters) -> None:
@@ -429,6 +446,6 @@ class BitM_ResNet152x4_ILSVRC2012(Custom):
     def create_model(self) -> Any:
         model = KNOWN_MODELS['BiT-M-R152x4']()
         model.load_from(get_weights('BiT-M-R152x4-ILSVRC2012'))
-        return model, None
+        return model, preprocessing(resize_dim=480, crop_dim=480)
     
     
