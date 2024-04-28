@@ -266,7 +266,7 @@ preprocess_bits = preprocessing(resize_dim=384, crop_dim=384)
 #could not find any source at all for this so this is a wild guess
 #this tensorflow implementation uses RESIZE_TO = 384 but only crops with CROP_TO = 224 during traing: https://keras.io/examples/vision/bit/
 #also info here: https://paperswithcode.com/paper/large-scale-learning-of-general-visual/review/?hl=16568
-
+#also in hf/transformers: https://github.com/huggingface/transformers/tree/v4.40.1/src/transformers/models/bit (using CLIP mean+std??)
 
 class BitS_ResNet50x1(Custom):
     def __init__(self, device, parameters) -> None:
