@@ -257,7 +257,7 @@ def get_weights(bit_variant):
 def preprocessing(resize_dim, crop_dim):
     mean = [0.5, 0.5, 0.5]
     std = [0.5, 0.5, 0.5]
-    return T.Compose[T.Resize(resize_dim), T.CenterCrop(crop_dim), T.ToTensor(), T.Normalize(mean=mean, std=std)]
+    return T.Compose([T.Resize(resize_dim), T.CenterCrop(crop_dim), T.ToTensor(), T.Normalize(mean=mean, std=std)])
 
 
 preprocess_bitm_in21k = preprocessing(resize_dim=256, crop_dim=224)
