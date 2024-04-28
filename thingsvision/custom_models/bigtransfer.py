@@ -274,7 +274,7 @@ class BitS_ResNet50x1(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-S-R50x1']()
+        model = KNOWN_MODELS['BiT-S-R50x1'](head_size=1000)
         model.load_from(get_weights('BiT-S-R50x1'))
         return model, preprocess_bits
 
@@ -284,7 +284,7 @@ class BitS_ResNet50x3(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-S-R50x3']()
+        model = KNOWN_MODELS['BiT-S-R50x3'](head_size=1000)
         model.load_from(get_weights('BiT-S-R50x3'))
         return model, preprocess_bits
 
@@ -294,7 +294,7 @@ class BitS_ResNet101x1(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-S-R101x1']()
+        model = KNOWN_MODELS['BiT-S-R101x1'](head_size=1000)
         model.load_from(get_weights('BiT-S-R101x1'))
         return model, preprocess_bits
 
@@ -304,7 +304,7 @@ class BitS_ResNet101x3(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-S-R101x3']()
+        model = KNOWN_MODELS['BiT-S-R101x3'](head_size=1000)
         model.load_from(get_weights('BiT-S-R101x3'))
         return model, preprocess_bits
     
@@ -314,7 +314,7 @@ class BitS_ResNet152x2(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-S-R152x2']()
+        model = KNOWN_MODELS['BiT-S-R152x2'](head_size=1000)
         model.load_from(get_weights('BiT-S-R152x2'))
         return model, preprocess_bits
     
@@ -324,7 +324,7 @@ class BitS_ResNet152x4(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-S-R152x4']()
+        model = KNOWN_MODELS['BiT-S-R152x4'](head_size=1000)
         model.load_from(get_weights('BiT-S-R152x4'))
         return model, preprocess_bits
     
@@ -394,7 +394,7 @@ class BitM_ResNet50x1_ILSVRC2012(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-M-R50x1']()
+        model = KNOWN_MODELS['BiT-M-R50x1'](head_size=1000)
         model.load_from(get_weights('BiT-M-R50x1-ILSVRC2012'))
         return model, preprocess_bitm_ilsvrc2012
     
@@ -404,7 +404,7 @@ class BitM_ResNet50x3_ILSVRC2012(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-M-R50x3']()
+        model = KNOWN_MODELS['BiT-M-R50x3'](head_size=1000)
         model.load_from(get_weights('BiT-M-R50x3-ILSVRC2012'))
         return model, preprocess_bitm_ilsvrc2012
     
@@ -414,7 +414,7 @@ class BitM_ResNet101x1_ILSVRC2012(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-M-R101x1']()
+        model = KNOWN_MODELS['BiT-M-R101x1'](head_size=1000)
         model.load_from(get_weights('BiT-M-R101x1-ILSVRC2012'))
         return model, preprocess_bitm_ilsvrc2012
     
@@ -424,7 +424,7 @@ class BitM_ResNet101x3_ILSVRC2012(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-M-R101x3']()
+        model = KNOWN_MODELS['BiT-M-R101x3'](head_size=1000)
         model.load_from(get_weights('BiT-M-R101x3-ILSVRC2012'))
         return model, preprocess_bitm_ilsvrc2012
     
@@ -434,7 +434,7 @@ class BitM_ResNet152x2_ILSVRC2012(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-M-R152x2']()
+        model = KNOWN_MODELS['BiT-M-R152x2'](head_size=1000)
         model.load_from(get_weights('BiT-M-R152x2-ILSVRC2012'))
         return model, preprocess_bitm_ilsvrc2012
     
@@ -444,7 +444,7 @@ class BitM_ResNet152x4_ILSVRC2012(Custom):
         self.backend = "pt"
 
     def create_model(self) -> Any:
-        model = KNOWN_MODELS['BiT-M-R152x4']()
+        model = KNOWN_MODELS['BiT-M-R152x4'](head_size=1000)
         model.load_from(get_weights('BiT-M-R152x4-ILSVRC2012'))
         return model, preprocessing(resize_dim=480, crop_dim=480)
     
