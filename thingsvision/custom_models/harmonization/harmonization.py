@@ -27,7 +27,7 @@ class Harmonization(Custom):
         if self.variant not in variants:
             raise ValueError(f"\nVariant must be one of {variants}")
 
-    def harmonization_preprocessing(img):
+    def harmonization_preprocessing(self, img):
         img = layers.experimental.preprocessing.Resizing(224, 224)
         return preprocess_input(img)
 
@@ -43,4 +43,4 @@ class Harmonization(Custom):
             "LeViT_small": load_LeViT_small,
         }
         model = variant_function_dict[self.variant]()
-        return model, harmonization_preprocessing
+        return model, self.harmonization_preprocessing
