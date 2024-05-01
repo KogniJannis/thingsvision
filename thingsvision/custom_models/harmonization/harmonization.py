@@ -2,7 +2,7 @@ from typing import Any
 
 from harmonization.models import (load_EfficientNetB0, load_LeViT_small,
                                   load_ResNet50, load_tiny_ConvNeXT,
-                                  load_tiny_MaxViT, load_VGG16, load_ViT_B16)
+                                  load_tiny_MaxViT, load_VGG16, load_ViT_B16, preprocess_input)
 
 from thingsvision.custom_models.custom import Custom
 
@@ -39,4 +39,4 @@ class Harmonization(Custom):
             "LeViT_small": load_LeViT_small,
         }
         model = variant_function_dict[self.variant]()
-        return model, None
+        return model, preprocess_input
