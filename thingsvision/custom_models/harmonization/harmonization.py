@@ -5,7 +5,7 @@ from harmonization.models import (load_EfficientNetB0, load_LeViT_small,
                                   load_tiny_MaxViT, load_VGG16, load_ViT_B16, preprocess_input)
 
 from thingsvision.custom_models.custom import Custom
-
+from tensorflow.keras import layers
 
 class Harmonization(Custom):
     def __init__(self, device, parameters) -> None:
@@ -27,6 +27,10 @@ class Harmonization(Custom):
         if self.variant not in variants:
             raise ValueError(f"\nVariant must be one of {variants}")
 
+    def harmonization_preprocessing(img):
+        img = layers.experimental.preprocessing.Resizing(224, 224)
+        return preprocess_input(img)
+
     def create_model(self) -> Any:
         self.check_available_variants()
         variant_function_dict = {
@@ -39,4 +43,4 @@ class Harmonization(Custom):
             "LeViT_small": load_LeViT_small,
         }
         model = variant_function_dict[self.variant]()
-        return model, preprocess_input
+        return model, harmonization_preprocessing
