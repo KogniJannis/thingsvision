@@ -28,7 +28,7 @@ class Harmonization(Custom):
             raise ValueError(f"\nVariant must be one of {variants}")
 
     def harmonization_preprocessing(self, img):
-        img = layers.experimental.preprocessing.Resizing(224, 224)
+        img = layers.experimental.preprocessing.Resizing(224, 224)(img)
         return preprocess_input(img)
 
     def create_model(self) -> Any:
