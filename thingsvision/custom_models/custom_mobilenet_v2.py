@@ -21,10 +21,10 @@ __all__ = [
  'MobileNetV2_0_75_160',
  'MobileNetV2_0_75_192',
  'MobileNetV2_0_75_224',
- 'MobileNetV2_1_96',
- 'MobileNetV2_1_160',
- 'MobileNetV2_1_192',
- 'MobileNetV2_1_224',
+ 'MobileNetV2_1_0_96',
+ 'MobileNetV2_1_0_160',
+ 'MobileNetV2_1_0_192',
+ 'MobileNetV2_1_0_224',
  'MobileNetV2_1_3_224',
  'MobileNetV2_1_4_224']
 
@@ -170,7 +170,7 @@ class MobileNetV2_0_75_224(Custom):
         preprocess = get_mobilenetv2_preprocessing(self.input_size)
         return model, preprocess
 
-class MobileNetV2_1_96(Custom):
+class MobileNetV2_1_0_96(Custom):
     def __init__(self, device, parameters) -> None:
         super().__init__(device)
         self.backend = "tf"
@@ -181,7 +181,7 @@ class MobileNetV2_1_96(Custom):
         preprocess = get_mobilenetv2_preprocessing(self.input_size)
         return model, preprocess
 
-class MobileNetV2_1_160(Custom):
+class MobileNetV2_1_0_160(Custom):
     def __init__(self, device, parameters) -> None:
         super().__init__(device)
         self.backend = "tf"
@@ -192,7 +192,7 @@ class MobileNetV2_1_160(Custom):
         preprocess = get_mobilenetv2_preprocessing(self.input_size)
         return model, preprocess
 
-class MobileNetV2_1_192(Custom):
+class MobileNetV2_1_0_192(Custom):
     def __init__(self, device, parameters) -> None:
         super().__init__(device)
         self.backend = "tf"
@@ -203,7 +203,7 @@ class MobileNetV2_1_192(Custom):
         preprocess = get_mobilenetv2_preprocessing(self.input_size)
         return model, preprocess
 
-class MobileNetV2_1_224(Custom):
+class MobileNetV2_1_0_224(Custom):
     def __init__(self, device, parameters) -> None:
         super().__init__(device)
         self.backend = "tf"
