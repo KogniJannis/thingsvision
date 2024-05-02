@@ -49,189 +49,189 @@ class MobileNetV2_0_35_96(Custom):
         preprocess = get_mobilenetv2_preprocessing(self.input_size)
         return model, preprocess
     
-    class MobileNetV2_0_35_160(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 160
-            self.model_width = 0.35
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_35_160(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 160
+        self.model_width = 0.35
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_35_192(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 192
-            self.model_width = 0.35
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_35_192(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 192
+        self.model_width = 0.35
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_35_224(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 224
-            self.model_width = 0.35
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_35_224(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 224
+        self.model_width = 0.35
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_5_96(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 96
-            self.model_width = 0.5
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_5_96(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 96
+        self.model_width = 0.5
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_5_160(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 160
-            self.model_width = 0.5
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_5_160(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 160
+        self.model_width = 0.5
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_5_192(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 192
-            self.model_width = 0.5
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_5_192(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 192
+        self.model_width = 0.5
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_5_224(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 224
-            self.model_width = 0.5
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_5_224(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 224
+        self.model_width = 0.5
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_75_96(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 96
-            self.model_width = 0.75
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_75_96(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 96
+        self.model_width = 0.75
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_75_160(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 160
-            self.model_width = 0.75
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_75_160(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 160
+        self.model_width = 0.75
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_75_192(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 192
-            self.model_width = 0.75
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_75_192(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 192
+        self.model_width = 0.75
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_0_75_224(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 224
-            self.model_width = 0.75
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_0_75_224(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 224
+        self.model_width = 0.75
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_1_96(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 96
-            self.model_width = 1.0
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_1_96(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 96
+        self.model_width = 1.0
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_1_160(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 160
-            self.model_width = 1.0
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_1_160(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 160
+        self.model_width = 1.0
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_1_192(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 192
-            self.model_width = 1.0
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_1_192(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 192
+        self.model_width = 1.0
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_1_224(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 224
-            self.model_width = 1.0
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_1_224(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 224
+        self.model_width = 1.0
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_1_3_224(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 224
-            self.model_width = 1.3
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_1_3_224(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 224
+        self.model_width = 1.3
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
 
-    class MobileNetV2_1_4_224(Custom):
-        def __init__(self, device, parameters) -> None:
-            super().__init__(device)
-            self.backend = "tf"
-            self.input_size = 224
-            self.model_width = 1.4
-        def create_model(self) -> Any:
-            model = resolve_mobilenet(self.input_size, self.model_width)
-            preprocess = get_mobilenetv2_preprocessing(self.input_size)
-            return model, preprocess
+class MobileNetV2_1_4_224(Custom):
+    def __init__(self, device, parameters) -> None:
+        super().__init__(device)
+        self.backend = "tf"
+        self.input_size = 224
+        self.model_width = 1.4
+    def create_model(self) -> Any:
+        model = resolve_mobilenet(self.input_size, self.model_width)
+        preprocess = get_mobilenetv2_preprocessing(self.input_size)
+        return model, preprocess
