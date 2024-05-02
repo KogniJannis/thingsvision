@@ -35,7 +35,7 @@ def get_mobilenetv2_preprocessing(input_size):
     def preprocess(x):
         x = keras.layers.experimental.preprocessing.Resizing(input_size, input_size)(x)
         return keras_models.mobilenet_v2.preprocess_input(x)
-    return keras_models.mobilenet_v2.preprocess_input
+    return preprocess
 
 
 class MobileNetV2_0_35_96(Custom):
