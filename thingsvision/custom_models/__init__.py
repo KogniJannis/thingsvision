@@ -9,4 +9,4 @@ from .robust_resnet import *
 from .shapenets import *
 from .weaklysupervised import *
 from .bigtransfer import *
-from .mobilenet import *
+from .custom_mobilenet_v2 import *
