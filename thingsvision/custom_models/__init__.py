@@ -10,3 +10,4 @@ from .shapenets import *
 from .weaklysupervised import *
 from .bigtransfer import *
 from .custom_mobilenet_v2 import *
+from .vonenet import *
