@@ -27,7 +27,7 @@ class VOneNet_AlexNet(Custom):
     
     def create_model(self) -> Any:
         model = vonenet.get_model(model_arch='alexnet', pretrained=True, map_location='cpu')
-        return model, load_vonenet_preprocessing
+        return model, load_vonenet_preprocessing()
 
 class VOneNet_ResNet50(Custom):
     def __init__(self, device, parameters) -> None:
@@ -36,7 +36,7 @@ class VOneNet_ResNet50(Custom):
 
     def create_model(self) -> Any:    
         model = vonenet.get_model(model_arch='resnet50', pretrained=True, map_location='cpu')
-        return model, load_vonenet_preprocessing
+        return model, load_vonenet_preprocessing()
 
 class VOneNet_ResNet50_at(Custom):
     def __init__(self, device, parameters) -> None:
@@ -45,7 +45,7 @@ class VOneNet_ResNet50_at(Custom):
     
     def create_model(self) -> Any:
         model = vonenet.get_model(model_arch='resnet50_at', pretrained=True, map_location='cpu')
-        return model, load_vonenet_preprocessing
+        return model, load_vonenet_preprocessing()
 
 class VOneNet_CORnetS(Custom):
     def __init__(self, device, parameters) -> None:
@@ -54,5 +54,5 @@ class VOneNet_CORnetS(Custom):
     
     def create_model(self) -> Any:
         model = vonenet.get_model(model_arch='cornets', pretrained=True, map_location='cpu')
-        return model, load_vonenet_preprocessing
+        return model, load_vonenet_preprocessing()
 
